@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Services — [Your Name]</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0e0c;
+    --paper: #faf8f3;
+    --cream: #f0ece0;
+    --gold: #c9a84c;
+    --gold-light: #e8d49a;
+    --muted: #7a7468;
+    --border: #ddd9ce;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 72px 32px 56px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, #e8d49a33 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold-light);
+    padding: 5px 16px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 8vw, 64px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -.02em;
+    margin-bottom: 18px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero p {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 460px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 13px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px #0f0e0c22; }
+
+  /* TRUST STRIP */
+  .trust-strip {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  .trust-item span.dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* PACKAGES */
+  .packages {
+    padding: 64px 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .section-label {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -.01em;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    align-items: start;
+  }
+
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px #0f0e0c12; }
+
+  .card.featured {
+    border: 2px solid var(--gold);
+    position: relative;
+  }
+  .card.featured::before {
+    content: 'Most Popular';
+    position: absolute;
+    top: 16px; right: 16px;
+    background: var(--gold);
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .card-header {
+    padding: 28px 28px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-tier {
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .card-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .price-symbol { font-size: 18px; font-weight: 500; color: var(--gold); }
+  .price-amount { font-size: 36px; font-weight: 700; line-height: 1; color: var(--ink); }
+  .price-range { font-size: 22px; font-weight: 700; color: var(--ink); }
+  .price-note { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .card-body { padding: 24px 28px; }
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #3a3830;
+    line-height: 1.5;
+  }
+  .feature-list li .check {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #f0ece0;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 9px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .card.featured .feature-list li .check {
+    background: #fdf5e0;
+  }
+
+  .card-footer { padding: 0 28px 28px; }
+  .card-btn {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    border: 1.5px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    transition: all .2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .card-btn:hover { background: var(--ink); color: white; }
+  .card.featured .card-btn {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+  .card.featured .card-btn:hover { background: #2a2820; }
+
+  /* ADDONS */
+  .addons {
+    background: var(--cream);
+    padding: 56px 24px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .addons-inner { max-width: 760px; margin: 0 auto; }
+  .addon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 36px;
+  }
+  .addon-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .addon-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .addon-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+  .addon-price { font-size: 15px; font-weight: 700; color: var(--gold); margin-top: 4px; }
+
+  /* MAINTENANCE */
+  .maintenance {
+    padding: 56px 24px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .maint-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 36px;
+  }
+  .maint-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 22px;
+    background: white;
+  }
+  .maint-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .maint-price { font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 12px; }
+  .maint-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .maint-list li { font-size: 12.5px; color: var(--muted); display: flex; gap: 7px; align-items: flex-start; }
+  .maint-list li::before { content: '—'; color: var(--gold-light); flex-shrink: 0; }
+
+  /* PROCESS */
+  .process {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 64px 24px;
+  }
+  .process-inner { max-width: 760px; margin: 0 auto; }
+  .process .section-label { color: var(--gold-light); }
+  .process .section-title { color: var(--paper); }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2px;
+    margin-top: 40px;
+  }
+  .step {
+    padding: 24px 20px;
+    border: 1px solid #ffffff15;
+    border-radius: 12px;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: #ffffff18;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .step-title { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+  .step-desc { font-size: 12px; color: #ffffff70; line-height: 1.6; }
+
+  /* WHY ME */
+  .why {
+    padding: 56px 24px;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-top: 36px;
+    text-align: left;
+  }
+  .why-item {
+    padding: 20px;
+    background: var(--cream);
+    border-radius: 12px;
+  }
+  .why-icon { font-size: 22px; margin-bottom: 10px; }
+  .why-title { font-size: 14px; font-weight: 500; margin-bottom: 5px; }
+  .why-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+  /* CTA FOOTER */
+  .cta-footer {
+    background: var(--gold);
+    padding: 56px 24px;
+    text-align: center;
+  }
+  .cta-footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 900;
+    color: white;
+    margin-bottom: 12px;
+  }
+  .cta-footer p { font-size: 15px; color: #ffffffcc; margin-bottom: 28px; font-weight: 300; }
+  .cta-footer a {
+    display: inline-block;
+    background: white;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: transform .2s;
+  }
+  .cta-footer a:hover { transform: translateY(-2px); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1, .hero p, .badge { animation: fadeUp .6s ease both; }
+  .hero p { animation-delay: .1s; }
+  .hero-cta { animation: fadeUp .6s ease .2s both; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">Web Development Services</div>
+  <h1>Websites that bring<br><em>more customers</em><br>to your business</h1>
+  <p>Professional, mobile-friendly websites for local resorts, hotels, and shops — built fast, priced fairly.</p>
+  <a href="https://wa.me/91XXXXXXXXXX" class="hero-cta">
+    💬 Chat on WhatsApp
+  </a>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><span class="dot"></span> Ready in 3–5 days</div>
+  <div class="trust-item"><span class="dot"></span> Mobile-friendly design</div>
+  <div class="trust-item"><span class="dot"></span> Hosting included</div>
+  <div class="trust-item"><span class="dot"></span> 50% upfront only</div>
+  <div class="trust-item"><span class="dot"></span> Local developer</div>
+</div>
+
+<!-- PACKAGES -->
+<section class="packages">
+  <p class="section-label">Service Packages</p>
+  <h2 class="section-title">Pick the right plan for your business</h2>
+  <p class="section-sub">All packages include mobile-friendly design, WhatsApp button, and Google Maps.</p>
+
+  <div class="cards">
+
+    <!-- BASIC -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tier">Starter</div>
+        <div class="card-name">Basic Package</div>
+        <div class="card-price">
+          <span class="price-symbol">₹</span>
+          <span class="price-range">2,000 – 5,000</span>
+        </div>
+        <p class="price-note">One-time · Domain + Hosting included (1 yr)</p>
+      </div>
+      <div class="card-body">
+        <ul class="feature-list">
+          <li><span class="check">✓</span> 3–4 page website</li>
+          <li><span class="check">✓</span> Home page with photos</li>
+          <li><span class="check">✓</span> Menu or Services page</li>
+          <li><span class="check">✓</span> Photo gallery</li>
+          <li><span class="check">✓</span> Contact page + Google Maps</li>
+          <li><span class="check">✓</span> WhatsApp button</li>
+          <li><span class="check">✓</span> Mobile-friendly design</li>
+          <li><span class="check">✓</span> Custom domain name</li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <button class="card-btn" onclick="alert('Contact via WhatsApp to get started!')">Get Started</button>
+      </div>
+    </div>
+
+    <!-- STANDARD — FEATURED -->
+    <div class="card featured">
+      <div class="card-header">
+        <div class="card-tier">Best Value</div>
+        <div class="card-name">Standard Package</div>
+        <div class="card-price">
+          <span class="price-symbol">₹</span>
+          <span class="price-range">5,000 – 10,000</span>
+        </div>
+        <p class="price-note">One-time · Domain + Hosting included (1 yr)</p>
+      </div>
+      <div class="card-body">
+        <ul class="feature-list">
+          <li><span class="check">✓</span> Everything in Basic</li>
+          <li><span class="check">✓</span> 5–6 pages</li>
+          <li><span class="check">✓</span> Online enquiry / booking form</li>
+          <li><span class="check">✓</span> SEO optimization (show on Google)</li>
+          <li><span class="check">✓</span> Google Business Profile setup</li>
+          <li><span class="check">✓</span> Fast loading speed</li>
+          <li><span class="check">✓</span> Social media links</li>
+          <li><span class="check">✓</span> 1 free revision after delivery</li>
+          <li><span class="check">✓</span> 1 month free support</li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <button class="card-btn" onclick="alert('Contact via WhatsApp to get started!')">Get Started</button>
+      </div>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tier">Premium</div>
+        <div class="card-name">Premium Package</div>
+        <div class="card-price">
+          <span class="price-symbol">₹</span>
+          <span class="price-range">10,000+</span>
+        </div>
+        <p class="price-note">One-time · Domain + Hosting included (1 yr)</p>
+      </div>
+      <div class="card-body">
+        <ul class="feature-list">
+          <li><span class="check">✓</span> Everything in Standard</li>
+          <li><span class="check">✓</span> Full resort / hotel website</li>
+          <li><span class="check">✓</span> Rooms & packages page</li>
+          <li><span class="check">✓</span> Full photo gallery with lightbox</li>
+          <li><span class="check">✓</span> WhatsApp booking button</li>
+          <li><span class="check">✓</span> Testimonials / reviews section</li>
+          <li><span class="check">✓</span> Advanced SEO setup</li>
+          <li><span class="check">✓</span> 3 months free support</li>
+          <li><span class="check">✓</span> Monthly content updates</li>
+          <li><span class="check">✓</span> Priority delivery (2–3 days)</li>
+        </ul>
+      </div>
+      <div class="card-footer">
+        <button class="card-btn" onclick="alert('Contact via WhatsApp to get started!')">Get Started</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="addons">
+  <div class="addons-inner">
+    <p class="section-label">Add-On Services</p>
+    <h2 class="section-title">Boost your website further</h2>
+    <p class="section-sub">Add any of these to any package at any time.</p>
+    <div class="addon-grid">
+      <div class="addon-item">
+        <div class="addon-name">Google Business Setup</div>
+        <div class="addon-desc">Show up in Google Maps searches near you</div>
+        <div class="addon-price">₹800</div>
+      </div>
+      <div class="addon-item">
+        <div class="addon-name">Logo Design</div>
+        <div class="addon-desc">Simple, clean logo for your business</div>
+        <div class="addon-price">₹1,000</div>
+      </div>
+      <div class="addon-item">
+        <div class="addon-name">Extra Page</div>
+        <div class="addon-desc">Add any additional page to your site</div>
+        <div class="addon-price">₹500 / page</div>
+      </div>
+      <div class="addon-item">
+        <div class="addon-name">Speed Optimization</div>
+        <div class="addon-desc">Make your site load faster on mobile</div>
+        <div class="addon-price">₹1,000</div>
+      </div>
+      <div class="addon-item">
+        <div class="addon-name">Instagram Link-in-Bio</div>
+        <div class="addon-desc">One page with all your links and contacts</div>
+        <div class="addon-price">₹800</div>
+      </div>
+      <div class="addon-item">
+        <div class="addon-name">Annual Hosting Renewal</div>
+        <div class="addon-desc">We handle renewal so you don't have to</div>
+        <div class="addon-price">₹2,000 / yr</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAINTENANCE PLANS -->
+<section class="maintenance">
+  <p class="section-label">Monthly Plans</p>
+  <h2 class="section-title">Maintenance & AMC Plans</h2>
+  <p class="section-sub">Pay monthly and we keep your site fresh, updated, and running perfectly.</p>
+  <div class="maint-cards">
+    <div class="maint-card">
+      <h4>Basic Care</h4>
+      <div class="maint-price">₹500 / mo</div>
+      <ul class="maint-list">
+        <li>Up to 3 content updates/month</li>
+        <li>Fix any broken links or errors</li>
+        <li>Monthly backup</li>
+        <li>WhatsApp support</li>
+      </ul>
+    </div>
+    <div class="maint-card">
+      <h4>Standard Care</h4>
+      <div class="maint-price">₹1,000 / mo</div>
+      <ul class="maint-list">
+        <li>Up to 8 content updates/month</li>
+        <li>New photos or menu changes</li>
+        <li>Speed checks monthly</li>
+        <li>Priority support</li>
+        <li>Hosting managed by us</li>
+      </ul>
+    </div>
+    <div class="maint-card">
+      <h4>Premium Care</h4>
+      <div class="maint-price">₹1,500 / mo</div>
+      <ul class="maint-list">
+        <li>Unlimited small updates</li>
+        <li>Monthly SEO report</li>
+        <li>Google Business updates</li>
+        <li>New seasonal offers page</li>
+        <li>Same-day support</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-inner">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title" style="color:white;">From conversation to live website</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">We talk</div>
+        <div class="step-desc">You tell me about your business. I understand what you need.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">50% payment</div>
+        <div class="step-desc">Pay half upfront via UPI. Work begins immediately.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">I build it</div>
+        <div class="step-desc">Your website is ready in 3–5 days. You review it.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Go live</div>
+        <div class="step-desc">Final payment, site goes live. Customers find you online.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="why">
+  <p class="section-label">Why choose me</p>
+  <h2 class="section-title">Built for local businesses, by a local developer</h2>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">Fast delivery</div>
+      <div class="why-desc">Your website ready in 3–5 days, not weeks.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">📱</div>
+      <div class="why-title">Mobile first</div>
+      <div class="why-desc">Looks perfect on every phone and screen size.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">💰</div>
+      <div class="why-title">Fair pricing</div>
+      <div class="why-desc">No hidden costs. No big agency fees. Just honest work.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">📍</div>
+      <div class="why-title">Local support</div>
+      <div class="why-desc">I'm nearby. You can reach me on WhatsApp anytime.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🔍</div>
+      <div class="why-title">Google ready</div>
+      <div class="why-desc">Every site is optimized to show up in local searches.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🤝</div>
+      <div class="why-title">No tech stress</div>
+      <div class="why-desc">I handle domain, hosting, everything. You just approve.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FOOTER -->
+<section class="cta-footer">
+  <h2>Ready to get more customers?</h2>
+  <p>Let's build your website this week. WhatsApp me and let's talk.</p>
+  <a href="https://wa.me/91XXXXXXXXXX">💬 Message me on WhatsApp</a>
+</section>
+
+</body>
+</html>
