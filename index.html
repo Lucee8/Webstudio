@@ -401,6 +401,67 @@
   .hero h1, .hero p, .badge { animation: fadeUp .6s ease both; }
   .hero p { animation-delay: .1s; }
   .hero-cta { animation: fadeUp .6s ease .2s both; }
+
+ /* PORTFOLIO */
+.portfolio {
+  padding: 64px 24px;
+  border-top: 1px solid var(--border);
+}
+.portfolio-inner { max-width: 960px; margin: 0 auto; }
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 36px;
+}
+.portfolio-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform .25s, box-shadow .25s;
+}
+.portfolio-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px #0f0e0c12; }
+.portfolio-thumb {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.portfolio-mockup {
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 12px 14px;
+  width: 100%;
+  max-width: 220px;
+  backdrop-filter: blur(4px);
+}
+.mock-bar { display: flex; gap: 4px; margin-bottom: 10px; }
+.mock-bar span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.4); }
+.mock-line { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.35); margin-bottom: 6px; }
+.mock-line.wide { width: 100%; }
+.mock-line.medium { width: 70%; }
+.mock-line.short { width: 45%; }
+.mock-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+.mock-block { height: 32px; border-radius: 4px; background: rgba(255,255,255,0.2); }
+.portfolio-info { padding: 20px 22px 22px; }
+.portfolio-tag {
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.portfolio-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.portfolio-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+.portfolio-link { font-size: 13px; font-weight: 500; color: var(--ink); }
+.portfolio-card:hover .portfolio-link { color: var(--gold); }
+ 
 </style>
 </head>
 <body>
@@ -526,6 +587,83 @@
   </div>
 </section>
 
+<!-- PORTFOLIO / SAMPLES -->
+<section class="portfolio">
+  <div class="portfolio-inner">
+    <p class="section-label">Our Work</p>
+    <h2 class="section-title">Real websites we've built</h2>
+    <p class="section-sub">Live projects delivered for local businesses in Maharashtra.</p>
+
+    <div class="portfolio-grid">
+
+      <a class="portfolio-card" href="https://mykonoscottagetarkarli.com" target="_blank">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg,#1a3a4a 0%,#2d6a5a 100%);">
+          <div class="portfolio-mockup">
+            <div class="mock-bar"><span></span><span></span><span></span></div>
+            <div class="mock-line wide"></div>
+            <div class="mock-line medium"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-blocks">
+              <div class="mock-block"></div>
+              <div class="mock-block"></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">Resort · Premium</div>
+          <div class="portfolio-name">Mykonos Cottage Tarkarli</div>
+          <div class="portfolio-desc">Full resort website with AI chatbot, booking form, gallery, and SEO.</div>
+          <div class="portfolio-link">View live site →</div>
+        </div>
+      </a>
+
+      <a class="portfolio-card" href="#" target="_blank">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg,#3a1a4a 0%,#6a2d5a 100%);">
+          <div class="portfolio-mockup">
+            <div class="mock-bar"><span></span><span></span><span></span></div>
+            <div class="mock-line wide"></div>
+            <div class="mock-line medium"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-blocks">
+              <div class="mock-block"></div>
+              <div class="mock-block"></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">Clinic · Standard</div>
+          <div class="portfolio-name">Dr. Snehal's Skin Clinic</div>
+          <div class="portfolio-desc">Dermatology clinic website with services, gallery, and contact form.</div>
+          <div class="portfolio-link">View live site →</div>
+        </div>
+      </a>
+
+      <a class="portfolio-card" href="#" target="_blank">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg,#1a2a4a 0%,#2d4a6a 100%);">
+          <div class="portfolio-mockup">
+            <div class="mock-bar"><span></span><span></span><span></span></div>
+            <div class="mock-line wide"></div>
+            <div class="mock-line medium"></div>
+            <div class="mock-line short"></div>
+            <div class="mock-blocks">
+              <div class="mock-block"></div>
+              <div class="mock-block"></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tag">Resort · Premium</div>
+          <div class="portfolio-name">Avisa Nilla</div>
+          <div class="portfolio-desc">Luxury resort site with rooms, packages, photo gallery, and enquiry form.</div>
+          <div class="portfolio-link">View live site →</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+ 
 <!-- ADD-ONS -->
 <section class="addons">
   <div class="addons-inner">
