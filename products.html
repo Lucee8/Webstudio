@@ -73,7 +73,7 @@
 
   /* HERO */
   .hero {
-    padding: 64px 32px 48px;
+    padding: 30px 32px 20px;
     text-align: center;
     border-bottom: 1px solid var(--border);
     position: relative;
@@ -226,7 +226,7 @@
     gap: 6px;
   }
   .b-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.5); }
-  .browser-url {
+  .browser-url {  
     flex: 1;
     background: rgba(255,255,255,0.15);
     border-radius: 4px;
@@ -381,7 +381,7 @@
     </svg>
     Back to Services
   </a>
-  <a href="index.html" class="topnav-logo">Webstudio</a>
+  <a href="index.html" class="topnav-logo">Webstudio_41</a>
   <a href="https://wa.me/918378991750" class="topnav-cta" target="_blank">💬 WhatsApp</a>
 </nav>
 
@@ -392,7 +392,7 @@
   <p>Every project is live, real, and built for a local business in Maharashtra.</p>
 </section>
 
-<!-- STATS -->
+<!-- STATS
 <div class="stats-bar">
   <div class="stat-item">
     <div class="stat-num">3+</div>
@@ -410,40 +410,29 @@
     <div class="stat-num">₹0</div>
     <div class="stat-label">Hidden charges</div>
   </div>
-</div>
+</div> -->
 
 <!-- FILTER TABS -->
 <div class="filter-bar">
   <button class="filter-btn active" onclick="filter('all', this)">All Projects</button>
   <button class="filter-btn" onclick="filter('resort', this)">Resorts & Hotels</button>
+  <button class="filter-btn" onclick="filter('cafe', this)">Cafes</button>
   <button class="filter-btn" onclick="filter('clinic', this)">Clinics</button>
   <button class="filter-btn" onclick="filter('premium', this)">Premium</button>
   <button class="filter-btn" onclick="filter('standard', this)">Standard</button>
+  <button class="filter-btn" onclick="filter('saas', this)">SaaS & Tools</button>
 </div>
 
 <!-- GRID -->
 <section class="portfolio-section">
   <div class="portfolio-grid" id="grid">
-
-    <!-- CARD 1: Mykonos -->
-<a class="p-card" href="https://mykonoscottagetarkarli.com" target="_blank" data-cat="resort premium">
-<div class="p-thumb" style="padding:0; overflow:hidden;">
-  <img src="mykonos.jpg" alt="Mykonos Cottage" style="width:100%; height:100%; object-fit:cover;">
+<!-- CARD 1: Mykonos -->
+    <a class="p-card" href="https://mykonoscottagetarkarli.com" target="_blank" data-cat="resort premium">
+<div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img src="mykonos.jpg" alt="Mykonos Cottage Tarkarli"
+      style="width:100%; height:100%; object-fit:fill; object-position:top; display:block;">
 </div>
-  <div class="p-info">
-        <div class="browser">
-          <div class="browser-bar">
-            <div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div>
-            <div class="browser-url"></div>
-          </div>
-          <div class="browser-body">
-            <div class="b-hero-block"></div>
-            <div class="b-line" style="width:80%"></div>
-            <div class="b-line" style="width:55%"></div>
-            <div class="b-grid"><div class="b-block"></div><div class="b-block"></div></div>
-          </div>
-        </div>
-      </div>
+
       <div class="p-info">
         <div class="p-tags">
           <span class="p-tag gold">Premium</span>
@@ -466,99 +455,255 @@
       </div>
     </a>
 
-    <!-- CARD 2: Dr. Snehal -->
-    <a class="p-card" href="#" target="_blank" data-cat="clinic standard">
-      <div class="p-thumb" style="background: linear-gradient(135deg, #2a1040 0%, #5a2080 50%, #8a40b0 100%);">
-        <div class="browser">
-          <div class="browser-bar">
-            <div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div>
-            <div class="browser-url"></div>
-          </div>
-          <div class="browser-body">
-            <div class="b-hero-block"></div>
-            <div class="b-line" style="width:70%"></div>
-            <div class="b-line" style="width:50%"></div>
-            <div class="b-grid"><div class="b-block"></div><div class="b-block"></div></div>
-          </div>
-        </div>
-      </div>
-      <div class="p-info">
-        <div class="p-tags">
-          <span class="p-tag">Standard</span>
-          <span class="p-tag">Clinic</span>
-          <span class="p-tag">Thane</span>
-        </div>
-        <div class="p-name">Dr. Snehal's Skin Clinic</div>
-        <div class="p-desc">A clean, professional dermatology clinic website for a Thane-based doctor. Built to rank locally and generate patient enquiries.</div>
-        <ul class="p-features">
-          <li>Services & treatments page</li>
-          <li>Photo gallery</li>
-          <li>Contact form + Google Maps</li>
-          <li>SEO optimized for local search</li>
-          <li>Mobile-first design</li>
-        </ul>
-        <div class="p-footer">
-          <span class="p-package">Standard Package</span>
-          <span class="p-link">View live site →</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- CARD 3: Avisa Nilla -->
-    <a class="p-card" href="#" target="_blank" data-cat="resort premium">
-      <div class="p-thumb" style="background: linear-gradient(135deg, #0d1f3a 0%, #1a3a6a 50%, #2d5a9a 100%);">
-        <div class="browser">
-          <div class="browser-bar">
-            <div class="b-dot"></div><div class="b-dot"></div><div class="b-dot"></div>
-            <div class="browser-url"></div>
-          </div>
-          <div class="browser-body">
-            <div class="b-hero-block"></div>
-            <div class="b-line" style="width:75%"></div>
-            <div class="b-line" style="width:50%"></div>
-            <div class="b-grid"><div class="b-block"></div><div class="b-block"></div></div>
-          </div>
-        </div>
-      </div>
-      <div class="p-info">
-        <div class="p-tags">
-          <span class="p-tag gold">Premium</span>
-          <span class="p-tag">Resort</span>
-          <span class="p-tag">Luxury</span>
-        </div>
-        <div class="p-name">Avisa Nilla</div>
-        <div class="p-desc">A luxury resort website with room packages, full photo gallery, and an enquiry form designed to convert visitors into bookings.</div>
-        <ul class="p-features">
-          <li>Rooms & packages showcase</li>
-          <li>Full gallery with lightbox</li>
-          <li>Enquiry form with email alerts</li>
-          <li>Testimonials section</li>
-          <li>Advanced SEO setup</li>
-        </ul>
-        <div class="p-footer">
-          <span class="p-package">Premium Package</span>
-          <span class="p-link">View live site →</span>
-        </div>
-      </div>
-    </a>
-
-    <!-- COMING SOON CARDS -->
-    <div class="p-card coming-soon" data-cat="resort standard">
-      <div class="p-thumb">
-        <div class="coming-label">More projects coming soon...</div>
-      </div>
-      <div class="p-info">
-        <div class="p-tags"><span class="p-tag">Upcoming</span></div>
-        <div class="p-name">Your Business Here?</div>
-        <div class="p-desc">We're always working on new projects. Reach out and your website could be featured next.</div>
-        <div class="p-footer">
-          <span class="p-package">All Packages</span>
-        </div>
-      </div>
+<!-- CARD 2: The Fika Cafe -->
+<a class="p-card" href="https://lucee8.github.io/Cafesample1/" target="_blank" data-cat="cafe standard">
+  <div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img 
+      src="Fikacafe.jpg" 
+      alt="The Fika Cafe Kalwa"
+      style="width:100%; height:100%; object-fit:fill; object-position:top; display:block;">
+  </div>
+  <div class="p-info">
+    <div class="p-tags">
+      <span class="p-tag">Standard</span>
+      <span class="p-tag">Cafe</span>
+      <span class="p-tag">Kalwa · Thane</span>
     </div>
+    <div class="p-name">The Fika Cafe</div>
+    <div class="p-desc">A full cafe website for Kalwa's favourite spot — with menu, specials, gallery, table reservation form, and Google Maps integration.</div>
+    <ul class="p-features">
+      <li>Interactive menu with tabs (Burgers, Pizza, Pasta…)</li>
+      <li>Table reservation form with WhatsApp confirm</li>
+      <li>Photo gallery & specials section</li>
+      <li>Reviews / testimonials section</li>
+      <li>Mobile-friendly with smooth animations</li>
+    </ul>
+    <div class="p-footer">
+      <span class="p-package">Standard Package</span>
+      <span class="p-link">View live site →</span>
+    </div>
+  </div>
+</a>
+
+<!-- CARD 3: Dr. Snehal's Skin Clinic -->
+<a class="p-card" href="https://lucee8.github.io/Clinicsample1/" target="_blank" data-cat="clinic standard">
+  <div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img 
+      src="Clinic.jpg" 
+      alt="Dr. Snehal's Skin Clinic Thane"
+      style="width:100%; height:100%; object-fit:fill; object-position:top; display:block;">
+  </div>
+  <div class="p-info">
+    <div class="p-tags">
+      <span class="p-tag gold">Premium</span>
+      <span class="p-tag">Clinic</span>
+      <span class="p-tag">Thane West</span>
+    </div>
+    <div class="p-name">Dr. Snehal's Skin, Hair & Aesthetics</div>
+    <div class="p-desc">A high-end dermatology clinic website for a board-certified M.D. dermatologist in Thane West — built to rank locally and drive appointment bookings.</div>
+    <ul class="p-features">
+      <li>9 treatments showcase with detailed descriptions</li>
+      <li>Appointment booking form with treatment selector</li>
+      <li>Patient testimonials & clinic gallery</li>
+      <li>Full SEO — targeting Thane dermatology searches</li>
+      <li>WhatsApp booking button + Google Maps</li>
+    </ul>
+    <div class="p-footer">
+      <span class="p-package">Premium Package</span>
+      <span class="p-link">View live site →</span>
+    </div>
+  </div>
+</a>
+
+<!-- CARD 4: Taj Exotica Resort -->
+<a class="p-card" href="taj-exotica.html" target="_blank" data-cat="resort premium">
+  <div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img 
+      src="Taj.jpg" 
+      alt="Taj Exotica Resort Goa"
+      style="width:100%; height:100%; object-fit: fill; object-position:top; display:block;">
+  </div>
+  <div class="p-info">
+    <div class="p-tags">
+      <span class="p-tag gold">Premium</span>
+      <span class="p-tag">Resort</span>
+      <span class="p-tag">South Goa</span>
+    </div>
+    <div class="p-name">Taj Exotica Resort, Goa</div>
+    <div class="p-desc">A luxury resort website for a beachfront property in South Goa — with live availability booking bar, room showcases, and WhatsApp integration.</div>
+    <ul class="p-features">
+      <li>Live availability booking bar with date & room picker</li>
+      <li>6 room types with pricing & booking CTAs</li>
+      <li>Custom cursor, page loader & scroll animations</li>
+      <li>Amenities, gallery, reviews & contact form</li>
+      <li>WhatsApp + call floating buttons</li>
+    </ul>
+    <div class="p-footer">
+      <span class="p-package">Premium Package</span>
+      <span class="p-link">View live site →</span>
+    </div>
+  </div>
+</a>
+
+<!-- CARD 5: Mykonos Cottage Tarkarli v2 -->
+<a class="p-card" href="mykonos-v2.html" target="_blank" data-cat="resort premium">
+  <div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img 
+      src="mykonos2.jpg" 
+      alt="Mykonos Cottage Tarkarli Riverside"
+      style="width:100%; height:100%; object-fit:fill; object-position:top; display:block;"
+    >
+  </div>
+  <div class="p-info">
+    <div class="p-tags">
+      <span class="p-tag gold">Premium</span>
+      <span class="p-tag">Resort</span>
+      <span class="p-tag">Tarkarli</span>
+    </div>
+    <div class="p-name">Mykonos Cottage Tarkarli <span style="font-size:11px;color:var(--muted);font-family:sans-serif;">v2</span></div>
+    <div class="p-desc">A nature-themed riverside retreat website — split-screen hero, live booking bar, 6 cottage types, and full Malvani hospitality experience.</div>
+    <ul class="p-features">
+      <li>Split-screen hero with forest green design system</li>
+      <li>Live availability booking bar with WhatsApp redirect</li>
+      <li>6 cottage types with pricing & booking CTAs</li>
+      <li>Campfire, kayaking & nature activity showcases</li>
+      <li>Enquiry form + floating WhatsApp & call buttons</li>
+    </ul>
+    <div class="p-footer">
+      <span class="p-package">Premium Package</span>
+      <span class="p-link">View live site →</span>
+    </div>
+  </div>
+</a>
+
+<!-- CARD 6: JW Marriott Chandigarh -->
+<a class="p-card" href="jw-marriott.html" target="_blank" data-cat="resort premium hotel">
+  <div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img 
+      src="JW Marriott.png" 
+      alt="JW Marriott Hotel Chandigarh"
+      style="width:100%; height:100%; object-fit:fill; object-position:top; display:block;">
+  </div>
+  <div class="p-info">
+    <div class="p-tags">
+      <span class="p-tag gold">Premium</span>
+      <span class="p-tag">5-Star Hotel</span>
+      <span class="p-tag">Chandigarh</span>
+    </div>
+    <div class="p-name">JW Marriott Hotel Chandigarh</div>
+    <div class="p-desc">A dark luxury 5-star hotel website with custom cursor, page loader, 6 room types, 6 dining venues, and live booking bar.</div>
+    <ul class="p-features">
+      <li>Dark luxury design with custom animated cursor</li>
+      <li>Page loader + smooth scroll reveal animations</li>
+      <li>6 room types & 6 dining venues showcased</li>
+      <li>Live availability booking bar with WhatsApp redirect</li>
+      <li>Spa, rooftop pool, ballroom & amenities sections</li>
+    </ul>
+    <div class="p-footer">
+      <span class="p-package">Premium Package</span>
+      <span class="p-link">View live site →</span>
+    </div>
+  </div>
+</a>
+
+<!-- RESORTDESK CARD -->
+<a class="p-card" href="https://desk.mykonoscottagetarkarli.com" target="_blank" data-cat="saas product">
+   <div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img 
+      src="resortdesk.jpg" 
+      alt="Resort Desk SaaS Product"
+      style="width:100%; height:100%; object-fit:fill; object-position:top; display:block;">
+  </div>
+  <div class="p-info">
+    <div class="p-tags">
+      <span class="p-tag gold">SaaS Product</span>
+      <span class="p-tag">Dashboard</span>
+      <span class="p-tag">Multi-tenant</span>
+    </div>
+    <div class="p-name">ResortDesk</div>
+    <div class="p-desc">A guest management SaaS dashboard built for resorts — live at Mykonos Cottage Tarkarli. Google Sheets backend, multi-device sync, GST invoicing.</div>
+    <ul class="p-features">
+      <li>Multi-tenant architecture (admin + staff roles)</li>
+      <li>Google Sheets sync — real-time across devices</li>
+      <li>GST invoice generation (CGST + SGST, SAC 9963)</li>
+      <li>WhatsApp checkout reminders</li>
+      <li>Revenue dashboard + advance bookings calendar</li>
+    </ul>
+    <div class="p-footer">
+      <span class="p-package" style="color:#2563eb;">SaaS · Live Product</span>
+      <span class="p-link">View dashboard →</span>
+    </div>
+  </div>
+</a>
+
+<!-- COMING SOON — WhatsApp Bot -->
+<div class="p-card coming-soon" data-cat="saas product">
+
+   <div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img 
+      src="whatsapp bot.png" 
+      alt="WhatsApp Bot AI Powered"
+      style="width:100%; height:100%; object-fit:fill; object-position:top; display:block;">
+  </div>
+
+  <div class="p-info">
+    <div class="p-tags">
+      <span class="p-tag" style="background:#dcfce7;color:#166534;">Coming Soon</span>
+      <span class="p-tag">WhatsApp Bot</span>
+      <span class="p-tag">AI Powered</span>
+    </div>
+    <div class="p-name">ResortChat</div>
+    <div class="p-desc">An AI-powered WhatsApp bot for resorts & hotels — answers availability, shares pricing, confirms bookings, and escalates to humans automatically.</div>
+    <ul class="p-features">
+      <li>Auto-replies to guest queries 24/7</li>
+      <li>Real-time availability from Google Sheets</li>
+      <li>AI powered by Gemini API</li>
+      <li>Hands off to owner when needed</li>
+      <li>Works for any resort, hotel or cafe</li>
+    </ul>
+    <div class="p-footer">
+      <span class="p-package" style="color:#25d366;">In Development</span>
+      <span class="p-link">Coming soon →</span>
+    </div>
+  </div>
+</div>
+
+<!-- COMING SOON — AI Calling Agent -->
+<div class="p-card coming-soon" data-cat="saas product ai">
+  
+   <div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+<video
+  src="callingvid.mp4"
+  autoplay
+  muted
+  loop
+  playsinline
+  style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;">
+</video>
 
   </div>
-</section>
+
+  <div class="p-info">
+    <div class="p-tags">
+      <span class="p-tag" style="background:#ede9fe;color:#5b21b6;">Coming Soon</span>
+      <span class="p-tag">AI Voice Agent</span>
+      <span class="p-tag">24/7 Receptionist</span>
+    </div>
+    <div class="p-name">ReceptionistAI</div>
+    <div class="p-desc">An AI voice agent that answers resort calls 24/7 — checks availability, answers questions, takes bookings, and sends a WhatsApp summary to the owner after every call.</div>
+    <ul class="p-features">
+      <li>Answers calls in Hindi + English (Hinglish)</li>
+      <li>Live availability from Google Sheets</li>
+      <li>Sends WhatsApp summary to owner after every call</li>
+      <li>Plugs directly into ResortDesk</li>
+      <li>Powered by Vapi + Gemini AI</li>
+    </ul>
+    <div class="p-footer">
+      <span class="p-package" style="color:#7c3aed;">In Development</span>
+      <span class="p-link">Coming soon →</span>
+    </div>
+  </div>
+</div>
 
 <!-- CTA BANNER -->
 <div class="cta-banner">
