@@ -302,6 +302,130 @@
   .portfolio-link { font-size: 13px; font-weight: 500; color: var(--ink); }
   .portfolio-card:hover .portfolio-link { color: var(--gold); }
 
+  /* GRID */
+  .portfolio-section {
+    padding: 40px 24px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .p-card {
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .p-card:hover { transform: translateY(-5px); box-shadow: 0 20px 56px #0f0e0c14; }
+  .p-card.hidden { display: none; }
+
+  .p-thumb {
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .p-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.15) 100%);
+  }
+
+  /* Browser mockup inside thumb */
+  .browser {
+    width: 100%;
+    max-width: 260px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  .browser-bar {
+    background: rgba(255,255,255,0.2);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .b-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+  .browser-url {  
+    flex: 1;
+    background: rgba(255,255,255,0.15);
+    border-radius: 4px;
+    height: 14px;
+    margin-left: 6px;
+  }
+  .browser-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 7px; }
+  .b-hero-block { height: 40px; background: rgba(255,255,255,0.2); border-radius: 5px; }
+  .b-line { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.28); }
+  .b-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 4px; }
+  .b-block { height: 28px; border-radius: 4px; background: rgba(255,255,255,0.18); }
+
+  .p-info { padding: 20px 22px 22px; }
+  .p-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .p-tag {
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: var(--cream);
+    color: var(--muted);
+  }
+  .p-tag.gold { background: #fdf5e0; color: #a07c20; }
+  .p-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+  .p-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+
+  .p-features { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
+  .p-features li {
+    font-size: 12px;
+    color: #3a3830;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .p-features li::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .p-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 14px; }
+  .p-package {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .p-link {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .p-card:hover .p-link { color: var(--gold); }
+
+
+
   /* VIEW ALL BUTTON */
   .portfolio-footer {
     text-align: center;
@@ -554,69 +678,104 @@
 </section>
 
 <!-- PORTFOLIO / SAMPLES -->
+
 <section class="portfolio">
   <div class="portfolio-inner">
     <p class="section-label">Our Work</p>
-    <h2 class="section-title">Real websites we've built</h2>
+    <h2 class="section-title">Websites we've built</h2>
     <p class="section-sub">Live projects delivered for local businesses in Maharashtra.</p>
 
-    <div class="portfolio-grid">
+<!-- GRID -->
+<section class="portfolio-section">
+  <div class="portfolio-grid" id="grid">
+<!-- CARD 1: Mykonos -->
+    <a class="p-card" href="https://mykonoscottagetarkarli.com" target="_blank" data-cat="resort premium">
+<div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img src="mykonos.jpg" alt="Mykonos Cottage Tarkarli"
+      style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;">
+</div>
 
-      <a class="portfolio-card" href="https://mykonoscottagetarkarli.com" target="_blank">
-        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #1a3a4a 0%, #2d6a5a 100%);">
-          <div class="portfolio-mockup">
-            <div class="mock-bar"><span></span><span></span><span></span></div>
-            <div class="mock-line wide"></div>
-            <div class="mock-line medium"></div>
-            <div class="mock-line short"></div>
-            <div class="mock-blocks"><div class="mock-block"></div><div class="mock-block"></div></div>
-          </div>
+      <div class="p-info">
+        <div class="p-tags">
+          <span class="p-tag gold">Premium</span>
+          <span class="p-tag">Resort</span>
+          <span class="p-tag">Tarkarli</span>
         </div>
-        <div class="portfolio-info">
-          <div class="portfolio-tag">Resort · Premium</div>
-          <div class="portfolio-name">Mykonos Cottage Tarkarli</div>
-          <div class="portfolio-desc">Full resort website with AI chatbot, booking form, gallery, and SEO.</div>
-          <div class="portfolio-link">View live site →</div>
+        <div class="p-name">Mykonos Cottage Tarkarli</div>
+        <div class="p-desc">A full resort website with AI chatbot (Myra), live availability, photo gallery, and WhatsApp booking integration.</div>
+        <ul class="p-features">
+          <li>AI chatbot powered by Gemini API</li>
+          <li>Booking form with WhatsApp + email alerts</li>
+          <li>Photo gallery with lightbox</li>
+          <li>Full SEO + structured data + sitemap</li>
+          <li>Google Business Profile setup</li>
+        </ul>
+        <div class="p-footer">
+          <span class="p-package">Premium Package</span>
+          <span class="p-link">View live site →</span>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <a class="portfolio-card" href="#" target="_blank">
-        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #3a1a4a 0%, #6a2d5a 100%);">
-          <div class="portfolio-mockup">
-            <div class="mock-bar"><span></span><span></span><span></span></div>
-            <div class="mock-line wide"></div>
-            <div class="mock-line medium"></div>
-            <div class="mock-line short"></div>
-            <div class="mock-blocks"><div class="mock-block"></div><div class="mock-block"></div></div>
-          </div>
-        </div>
-        <div class="portfolio-info">
-          <div class="portfolio-tag">Clinic · Standard</div>
-          <div class="portfolio-name">Dr. Snehal's Skin Clinic</div>
-          <div class="portfolio-desc">Dermatology clinic website with services, gallery, and contact form.</div>
-          <div class="portfolio-link">View live site →</div>
-        </div>
-      </a>
-
-      <a class="portfolio-card" href="#" target="_blank">
-        <div class="portfolio-thumb" style="background: linear-gradient(135deg, #1a2a4a 0%, #2d4a6a 100%);">
-          <div class="portfolio-mockup">
-            <div class="mock-bar"><span></span><span></span><span></span></div>
-            <div class="mock-line wide"></div>
-            <div class="mock-line medium"></div>
-            <div class="mock-line short"></div>
-            <div class="mock-blocks"><div class="mock-block"></div><div class="mock-block"></div></div>
-          </div>
-        </div>
-        <div class="portfolio-info">
-          <div class="portfolio-tag">Resort · Premium</div>
-          <div class="portfolio-name">Avisa Nilla</div>
-          <div class="portfolio-desc">Luxury resort site with rooms, packages, photo gallery, and enquiry form.</div>
-          <div class="portfolio-link">View live site →</div>
-        </div>
-      </a>
-
+<!-- CARD 2: The Fika Cafe -->
+<a class="p-card" href="https://lucee8.github.io/Cafesample1/" target="_blank" data-cat="cafe standard">
+  <div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img 
+      src="Fikacafe.jpg" 
+      alt="The Fika Cafe Kalwa"
+      style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;">
+  </div>
+  <div class="p-info">
+    <div class="p-tags">
+      <span class="p-tag">Standard</span>
+      <span class="p-tag">Cafe</span>
+      <span class="p-tag">Kalwa · Thane</span>
     </div>
+    <div class="p-name">The Fika Cafe</div>
+    <div class="p-desc">A full cafe website for Kalwa's favourite spot — with menu, specials, gallery, table reservation form, and Google Maps integration.</div>
+    <ul class="p-features">
+      <li>Interactive menu with tabs (Burgers, Pizza, Pasta…)</li>
+      <li>Table reservation form with WhatsApp confirm</li>
+      <li>Photo gallery & specials section</li>
+      <li>Reviews / testimonials section</li>
+      <li>Mobile-friendly with smooth animations</li>
+    </ul>
+    <div class="p-footer">
+      <span class="p-package">Standard Package</span>
+      <span class="p-link">View live site →</span>
+    </div>
+  </div>
+</a>
+
+<!-- CARD 2: Dr. Snehal's Skin Clinic -->
+<a class="p-card" href="https://lucee8.github.io/Clinicsample1/" target="_blank" data-cat="clinic standard">
+  <div class="p-thumb" style="padding:0; overflow:hidden; height:190px;">
+    <img 
+      src="Clinic.jpg" 
+      alt="Dr. Snehal's Skin Clinic Thane"
+      style="width:100%; height:100%; object-fit:cover; object-position:top; display:block;">
+  </div>
+  <div class="p-info">
+    <div class="p-tags">
+      <span class="p-tag gold">Premium</span>
+      <span class="p-tag">Clinic</span>
+      <span class="p-tag">Thane West</span>
+    </div>
+    <div class="p-name">Dr. Snehal's Skin, Hair & Aesthetics</div>
+    <div class="p-desc">A high-end dermatology clinic website for a board-certified M.D. dermatologist in Thane West — built to rank locally and drive appointment bookings.</div>
+    <ul class="p-features">
+      <li>9 treatments showcase with detailed descriptions</li>
+      <li>Appointment booking form with treatment selector</li>
+      <li>Patient testimonials & clinic gallery</li>
+      <li>Full SEO — targeting Thane dermatology searches</li>
+      <li>WhatsApp booking button + Google Maps</li>
+    </ul>
+    <div class="p-footer">
+      <span class="p-package">Premium Package</span>
+      <span class="p-link">View live site →</span>
+    </div>
+  </div>
+</a>
 
     <!-- VIEW ALL BUTTON -->
     <div class="portfolio-footer">
